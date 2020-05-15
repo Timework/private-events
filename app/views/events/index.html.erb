@@ -1,0 +1,13 @@
+<strong>Upcoming Events</strong>
+<% @upcoming_events.each do |event| %>
+<li>
+<%= link_to event.name, event_path(event), class: 'post_title'%>
+</li>
+<% end %>
+<strong>Previous Events</strong>
+<% @prev_events.each do |event| %>
+<li>
+<%= link_to event.name, event_path(event), class: 'post_title'%>
+</li>
+<% end %>
+<%= link_to "New Event", new_event_path, class: 'post_title'%>

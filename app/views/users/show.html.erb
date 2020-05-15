@@ -1,0 +1,19 @@
+<strong>User</strong>
+<%= @user.name %>
+<br>
+<strong>Upcoming Events</strong>
+<ul>
+<% @upcoming_events.each do |event| %>
+<li>
+<%= link_to event.name, event_path(event), class: 'post_title'%>
+</li>
+<% end %>
+</ul>
+<strong>Previous Events</strong>
+<ul>
+<% @prev_events.each do |event| %>
+<li>
+<%= link_to event.name, event_path(event), class: 'post_title'%>
+</li>
+<% end %>
+</ul>

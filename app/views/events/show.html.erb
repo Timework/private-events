@@ -1,0 +1,17 @@
+<%= @event.name %>
+<br>
+<%= @event.date %>
+<br>
+<%= @event.creator.name %>
+<br>
+<%= @event.description %>
+<br>
+<strong>Attendees</strong>
+<br>
+<% @attendees.each do |x| %>
+<li>
+<%= x.name %>
+</li>
+<% end %>
+
+<%= link_to "<< Back to Events List", events_path %>

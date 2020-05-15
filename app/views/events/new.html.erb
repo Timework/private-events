@@ -1,0 +1,13 @@
+<%= form_for @event do |f| %>
+<% if @event.errors.any? %>
+<ul>
+<% @event.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+<% end %>
+Name: <%= f.text_field :name, placeholder: "Name Here" %> <br/>
+Date: <%= f.date_field :date %> <br/>
+Description: <%= f.text_area :description, :cols => 30, :rows => 10 %> <br/>
+<%= f.submit %>
+<% end %>

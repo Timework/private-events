@@ -10,6 +10,35 @@
   </head>
 
   <body>
+  <%if flash[:notice] %>
+  <div class="notification is-primary global-notification">
+  <p class ="notice"><%= notice %></p>
+  </div>
+  <% end %>
+  <% if flash[:alert] %>
+  <div class="notification is-danger global-notification">
+  <p class ="alert"><%= alert %></p>
+  <% end %>
+
+  <% if logged_in? %>
+  <% if current_user.id != nil %>
+  <p class="control">
+    <%= link_to current_user.name, user_path(current_user.id), class: "button is-info"%>
+  </p>
+  <% else %>
+  <%= current_user.name %>
+  <% end %>
+  <p>
+  <%= link_to "Logout", sessions_path, method: :delete, class:"button is_info"%>
+  </p>
+  <% else %>
+  <%= link_to "log in", new_sessions_path, class: "button is-info"%>
+  <% end %>
+  <%= link_to "make event", new_event_path, class: 'post_title'%>
+  <br>
+  <%= link_to "events", events_path, class: 'post_title'%>
+  <br>
+
     <%= yield %>
   </body>
 </html>
